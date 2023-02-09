@@ -4,10 +4,10 @@ import 'colors.dart';
 
 // semibold heading
 TextStyle headingStyle({
-  bool isPrimaryText = true,
+  required bool? isPrimaryText,
   bool isItalic = false,
-  var fontWeight = 'regular',
-  var heading = 2,
+  required String? fontWeight,
+  required int heading,
 }) {
   return TextStyle(
     // if isPrimaryText true then black, else girantina500
@@ -40,10 +40,10 @@ TextStyle headingStyle({
 }
 
 TextStyle bodyStyle({
-  bool isPrimaryText = true,
+  required bool? isPrimaryText,
   bool isItalic = false,
-  var fontWeight = 'regular',
-  var body = 0,
+  required String? fontWeight,
+  required int body,
 }) {
   return TextStyle(
     // if isPrimaryText true then black, else girantina500

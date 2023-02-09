@@ -11,10 +11,11 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     Size().init(context);
     return Scaffold(
-        appBar: AppBar(
-          title: Text("test"),
-        ),
-        // body: Body(),
-        body: Text("splashview"));
+      appBar: AppBar(
+        title: Text("test"),
+      ),
+      // body: Body(),
+      body: Container(),
+    );
   }
 }
