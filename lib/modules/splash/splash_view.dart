@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/global/common/custom_buttons.dart';
 import '../../global/utils/size.dart';
 
 class SplashView extends StatelessWidget {
@@ -15,7 +16,18 @@ class SplashView extends StatelessWidget {
         title: Text("test"),
       ),
       // body: Body(),
-      body: Container(),
+      body: Container(
+        margin: EdgeInsets.all(5),
+        child: CustomButtons(
+          isActive: true,
+          isLarge: false,
+          buttonType: "secondary",
+          label: "Test",
+          iconPosition: "right",
+          press: () {},
+          iconImage: 'assets/icons/star.svg',
+        ),
+      ),
     );
   }
 }

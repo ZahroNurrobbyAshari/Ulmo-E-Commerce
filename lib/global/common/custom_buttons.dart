@@ -11,9 +11,6 @@ class CustomButtons extends StatelessWidget {
   String buttonType, iconImage, iconPosition, label;
   final Function? press;
 
-  TextStyle enabled =
-      bodyStyle(isPrimaryText: true, fontWeight: "regular", body: 1);
-
   CustomButtons({
     required this.isActive,
     required this.isLarge,
@@ -44,12 +41,18 @@ class CustomButtons extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(label),
+        (isActive == true) ? enabledText() : disabledText(),
         SizedBox(
           width: getProportionateScreenWidth(6),
         ),
         SvgPicture.asset(
           iconImage,
+          height: (isLarge == true)
+              ? getProportionateScreenHeight(24)
+              : getProportionateScreenHeight(18),
+          width: (isLarge == true)
+              ? getProportionateScreenWidth(24)
+              : getProportionateScreenWidth(18),
           color: (isActive == true)
               ? CollorPallete.black
               : CollorPallete.girantina500,
@@ -65,6 +68,12 @@ class CustomButtons extends StatelessWidget {
       children: [
         SvgPicture.asset(
           iconImage,
+          height: (isLarge == true)
+              ? getProportionateScreenHeight(24)
+              : getProportionateScreenHeight(18),
+          width: (isLarge == true)
+              ? getProportionateScreenWidth(24)
+              : getProportionateScreenWidth(18),
           color: (isActive == true)
               ? CollorPallete.black
               : CollorPallete.girantina500,
@@ -72,7 +81,7 @@ class CustomButtons extends StatelessWidget {
         SizedBox(
           width: getProportionateScreenWidth(6),
         ),
-        Text(label),
+        (isActive == true) ? enabledText() : disabledText(),
       ],
     );
   }
@@ -85,9 +94,15 @@ class CustomButtons extends StatelessWidget {
         SizedBox(
           width: getProportionateScreenWidth(0),
         ),
-        Text(label),
+        (isActive == true) ? enabledText() : disabledText(),
         SvgPicture.asset(
           iconImage,
+          height: (isLarge == true)
+              ? getProportionateScreenHeight(24)
+              : getProportionateScreenHeight(18),
+          width: (isLarge == true)
+              ? getProportionateScreenWidth(24)
+              : getProportionateScreenWidth(18),
           color: (isActive == true)
               ? CollorPallete.black
               : CollorPallete.girantina500,
@@ -103,11 +118,17 @@ class CustomButtons extends StatelessWidget {
       children: [
         SvgPicture.asset(
           iconImage,
+          height: (isLarge == true)
+              ? getProportionateScreenHeight(24)
+              : getProportionateScreenHeight(18),
+          width: (isLarge == true)
+              ? getProportionateScreenWidth(24)
+              : getProportionateScreenWidth(18),
           color: (isActive == true)
               ? CollorPallete.black
               : CollorPallete.girantina500,
         ),
-        Text(label),
+        (isActive == true) ? enabledText() : disabledText(),
         SizedBox(
           width: getProportionateScreenWidth(0),
         ),
@@ -129,7 +150,7 @@ class CustomButtons extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           color: (isActive == true)
               ? CollorPallete.charizard400
-              : CollorPallete.charizard400,
+              : CollorPallete.girantina300,
         ),
         child: (iconImage == "")
             ? Center(
@@ -143,9 +164,7 @@ class CustomButtons extends StatelessWidget {
                         : (iconPosition == "stuckLeft")
                             ? stuckLeftIcon()
                             : Center(
-                                child: (isActive == "true")
-                                    ? enabledText()
-                                    : disabledText(),
+                                child: enabledText(),
                               ),
       ),
     );
