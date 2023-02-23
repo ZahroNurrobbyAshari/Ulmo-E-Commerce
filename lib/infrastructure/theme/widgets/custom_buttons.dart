@@ -1,9 +1,9 @@
 // ignore_for_file: non_constant_identifier_names, unrelated_type_equality_checks, deprecated_member_use, must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/infrastructure/theme/size.dart';
-import 'package:flutter_application_1/infrastructure/theme/colors.dart';
-import '../theme/typography.dart';
+import 'package:flutter_application_1/infrastructure/theme/utils/size.dart';
+import 'package:flutter_application_1/infrastructure/theme/utils/colors.dart';
+import '../utils/typography.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomButtons extends StatelessWidget {
