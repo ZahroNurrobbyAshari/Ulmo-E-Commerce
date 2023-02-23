@@ -25,6 +25,7 @@ class NetworkController extends GetxController {
 
   Future<void> initConnectivity() async {
     _connectivityResult = await _connectivity.checkConnectivity();
+    print(_connectivityResult);
   }
 
   void _updateConnectionStatus(ConnectivityResult connectivityResult) {
@@ -67,7 +68,17 @@ class NetworkController extends GetxController {
             right: getProportionateScreenWidth(16),
             top: getProportionateScreenHeight(4),
           ),
-          mainButton: TextButton(onPressed: () {}, child: Text("Retry")),
+          mainButton: TextButton(
+              onPressed: () {},
+              child: Text(
+                "Retry",
+                style: TextStyle(
+                  color: CollorPallete.white,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: "Poppins",
+                  fontSize: 10,
+                ),
+              )),
           snackStyle: SnackStyle.FLOATING);
     } else {
       if (Get.isSnackbarOpen) {

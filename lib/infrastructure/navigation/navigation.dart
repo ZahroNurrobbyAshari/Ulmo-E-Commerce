@@ -28,13 +28,22 @@ class Nav {
   static List<GetPage> routes = [
     GetPage(
       name: Routes.HOME,
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 300),
       page: () => const HomeScreen(),
       binding: HomeControllerBinding(),
     ),
     GetPage(
       name: Routes.SPLASH,
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 300),
       page: () => SplashScreen(),
       binding: SplashControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.UNKNOWN,
+      page: () => const UnknownScreen(),
+      binding: UnknownControllerBinding(),
     ),
   ];
 }

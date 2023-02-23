@@ -15,6 +15,11 @@ class SplashScreen extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
     Size().init(context);
+    Future.delayed(const Duration(seconds: 3), () {
+      Get.offNamed(
+        '/home',
+      );
+    });
     return Scaffold(
       body: Container(
         color: CollorPallete.charizard300,
