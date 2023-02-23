@@ -1,22 +1,33 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_application_1/global/endpoints/routes.dart';
-import 'package:flutter_application_1/global/themes/theme.dart';
-import 'package:flutter_application_1/modules/splash/splash_view.dart';
+// ignore_for_file: prefer_const_constructors
 
-void main() {
-  runApp(const MyApp());
+import 'package:flutter/material.dart';
+import 'package:flutter_application_1/infrastructure/navigation/bindings/controllers/controllers_bindings.dart';
+import 'package:flutter_application_1/infrastructure/theme/utils/dependency_injection.dart';
+import 'package:flutter_application_1/presentation/screens.dart';
+
+import 'package:get/get.dart';
+import 'infrastructure/navigation/navigation.dart';
+import 'infrastructure/navigation/routes.dart';
+
+void main() async {
+  var initialRoute = await Routes.initialRoute;
+  runApp(Main(initialRoute));
+  DependencyInjection.init();
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class Main extends StatelessWidget {
+  final String initialRoute;
+  Main(this.initialRoute);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Ulmo',
-        initialRoute: SplashView.routeName,
-        routes: routes,
-        theme: theme());
+    return GetMaterialApp(
+      enableLog: true,
+      debugShowCheckedModeBanner: false,
+      initialRoute: initialRoute,
+      initialBinding: SplashControllerBinding(),
+      getPages: Nav.routes,
+      unknownRoute: Nav.routes[2],
+    );
   }
 }
